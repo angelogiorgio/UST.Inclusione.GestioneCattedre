@@ -87,7 +87,7 @@ namespace UST.Inclusione.GestioneCattedre.Import
                     x = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + read + ";Extended Properties='Excel 12.0;HDR=YES;IMEX=1;';");
                 }
 
-                string queryString = "SELECT * FROM [Test$]";
+                string queryString = "SELECT * FROM [Importazione$]";
                 using (x)
                 {
                     x.Open();
