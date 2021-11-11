@@ -9,9 +9,6 @@ namespace UST.Inclusione.GestioneCattedre
 {
     public class BundleConfig
     {
-
-
-
         // Per altre informazioni sulla creazione di bundle, vedere https://go.microsoft.com/fwlink/?LinkID=303951
         public static void RegisterBundles(BundleCollection bundles)
         {
