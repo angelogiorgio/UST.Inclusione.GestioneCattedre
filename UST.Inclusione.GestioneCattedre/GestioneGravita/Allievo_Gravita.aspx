@@ -7,7 +7,8 @@
         <hr style='width: 100%' />
         <p class="btn btn-default">Gestione Gravita Allievo.</p>
     </div>
-    <asp:ObjectDataSource ID="obsIstituti" runat="server" SelectMethod="GetAll" TypeName="UST.Inclusione.GestioneCattedre.BLL.Istituto" />
+    <asp:ObjectDataSource ID="obsIstituti" runat="server" SelectMethod="GetAll" 
+        TypeName="UST.Inclusione.GestioneCattedre.BLL.Istituto" />
 
     <asp:ObjectDataSource ID="obds_Allievi" runat="server" SelectMethod="Get"
         TypeName="UST.Inclusione.GestioneCattedre.BLL.Allievo" 
@@ -29,56 +30,7 @@
                         <asp:Label runat="server" ID="TextBox1" Text='<%# Bind("ID") %>' ValidateRequestMode="Enabled"></asp:Label>
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell Style="padding: 2px">
-                        <b>Istituto</b>
-                    </asp:TableCell><asp:TableCell>
-                        <asp:DropDownList ID="ddlIstituti" runat="server" DataSourceID="obsIstituti" DataTextField="Nome"
-                            AutoPostBack="true" OnSelectedIndexChanged="ddlIstituti_SelectedIndexChanged"
-                            OnDataBound="ddlIstituti_Init" Enabled="false"
-                            DataValueField="ID">
-                        </asp:DropDownList>
-                    </asp:TableCell><asp:TableCell Style="padding: 2px">
-                        <b>Plesso</b>
-                    </asp:TableCell><asp:TableCell>
-                        <asp:DropDownList ID="ddlPlessi" runat="server" DataSourceID="obds_Plessi" DataTextField="Descrizione"
-                            AutoPostBack="true" SelectedValue='<%# Bind("idPlesso") %>' Enabled="false"
-                            DataValueField="ID">
-                        </asp:DropDownList>
-                    </asp:TableCell><asp:TableCell Style="padding: 2px">
-                          <b>Anno Scolastico</b>
-                    </asp:TableCell><asp:TableCell>
-                        <asp:ObjectDataSource ID="obsAnnoScolastico" runat="server" SelectMethod="GetAll"
-                            TypeName="UST.Inclusione.GestioneCattedre.BLL.AnnoScolastico" />
-                        <asp:DropDownList ID="ddlAnnoScolastico" runat="server" DataSourceID="obsAnnoScolastico"
-                            SelectedValue='<%# Bind("idAnnoScolastico") %>' Enabled="false"
-                            DataTextField="Descrizione" DataValueField="ID">
-                        </asp:DropDownList>
-                    </asp:TableCell><asp:TableCell Style="padding: 2px">
-                    
-                        <b>Periodo
-                    </b>
-                    </asp:TableCell><asp:TableCell Style="padding: 2px">
-                        <asp:ObjectDataSource ID="obsPeriodi" runat="server" SelectMethod="GetAll" TypeName="UST.Inclusione.GestioneCattedre.BLL.Periodo" />
-                        <asp:DropDownList ID="ddlPeriodi" runat="server" DataSourceID="obsPeriodi" DataTextField="Descrizione"
-                            SelectedValue='<%# Bind("idPeriodo") %>' Enabled="false"
-                            DataValueField="ID">
-                        </asp:DropDownList>
-                    </asp:TableCell><asp:TableCell Style="padding: 2px">
-                    
-                        <b>Grado
-                    </b>
-                    </asp:TableCell><asp:TableCell Style="padding: 2px">
-
-                        <asp:ObjectDataSource ID="obsGradi" runat="server" SelectMethod="GetAll"
-                            TypeName="UST.Inclusione.GestioneCattedre.BLL.Grado" />
-                        <asp:DropDownList ID="ddlobsGradi" runat="server" DataSourceID="obsGradi"
-                            DataValueField="ID" Enabled="false"
-                            DataTextField="Descrizione">
-                        </asp:DropDownList>
-                     
-                    </asp:TableCell>
-                </asp:TableRow>
+        
                 <asp:TableRow runat="server" Style="border-spacing: 10px">
                     <asp:TableCell Style="padding-top: 10px">
                     <b>CF</b>

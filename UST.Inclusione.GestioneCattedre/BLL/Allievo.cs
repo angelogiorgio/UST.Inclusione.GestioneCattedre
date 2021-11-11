@@ -582,7 +582,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
 
         }
 
-        public int SetGravita(int ID, int idPlesso, int idAnnoScolastico, int idPeriodo,
+        public int SetGravita(int ID,
             string cf, string nome, string cognome, string sesso, string dataNascita, string luogoNascita, string luogoDomicilio,
             string cittadinanza, string classe, string numeroAllievi, string TempoScuolaClasse, string OreSettimanaliPresenza,
             string OreRichieste_PiscoFisico, string OreRichieste_Audioleso, string OreRichieste_NonVedente,

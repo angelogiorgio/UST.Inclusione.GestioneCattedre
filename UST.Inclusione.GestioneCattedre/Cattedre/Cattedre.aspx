@@ -19,11 +19,13 @@
         AutoGenerateColumns="False"
         EmptyDataText="Istituto è presente nel sistema."
         AllowPaging="True"
-        runat="server" DataKeyNames="ID" Font-Size="Small" RowStyle-Font-Size="Small"
+        runat="server" DataKeyNames="ID,ID_AnnoScolastico" Font-Size="Small" RowStyle-Font-Size="Small"
         Width="100%">
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="ID" Visible="true"
                 InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+             <asp:BoundField DataField="ID_AnnoScolastico" HeaderText="ID_AnnoScolastico" Visible="true"
+                InsertVisible="False" ReadOnly="True" SortExpression="ID_AnnoScolastico" />
             <asp:BoundField DataField="Nome" HeaderText="Nome" Visible="true"
                 InsertVisible="False" ReadOnly="True" SortExpression="Nome" />
             <asp:BoundField DataField="CodiceMeccanografico" HeaderText="Codice Meccanografico"

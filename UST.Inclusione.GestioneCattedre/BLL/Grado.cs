@@ -10,6 +10,9 @@ namespace UST.Inclusione.GestioneCattedre.BLL
         const string SP_GET_ALL = "uspGetGradi";
 
 
+
+
+
         public Grado() : base()
         {
         }

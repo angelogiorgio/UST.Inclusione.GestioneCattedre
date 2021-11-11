@@ -21,12 +21,14 @@
                 </td>
             </tr>
             <tr>
-                <asp:ObjectDataSource ID="obsIstituti" runat="server" SelectMethod="GetAll" TypeName="UST.Inclusione.GestioneCattedre.BLL.Istituto" />
+                <asp:ObjectDataSource ID="obsIstituti" runat="server" SelectMethod="GetAll" 
+                    TypeName="UST.Inclusione.GestioneCattedre.BLL.Istituto" />
 
                 <td>
                     <asp:DropDownList ID="ddlIstituti" runat="server" DataSourceID="obsIstituti" DataTextField="Nome"
                         AutoPostBack="true"
-                        DataValueField="ID" OnTextChanged="ddlIstituti_TextChanged">
+                        DataValueField="ID" OnTextChanged="ddlIstituti_TextChanged" 
+                        OnSelectedIndexChanged="ddlIstituti_SelectedIndexChanged">
                     </asp:DropDownList>
                 </td>
                 <td>

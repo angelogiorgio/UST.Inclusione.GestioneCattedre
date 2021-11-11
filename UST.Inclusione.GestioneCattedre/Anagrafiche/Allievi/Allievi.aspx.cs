@@ -54,6 +54,11 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
             }
 
         }
+
+        protected void ddlIstituti_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
     }
 
 }
