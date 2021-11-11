@@ -91,7 +91,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
 
             foreach (object[] t in test)
             {
-                list.Add(new Istituto((long)t[0], t[1].ToString(), t[2].ToString(), (int)t[3], t[4].ToString(), (decimal)t[5]
+                list.Add(new Istituto((long)t[0], t[1].ToString(), t[2].ToString(), (int)t[3], t[4].ToString(), SQL_DAL.GetDBField_DECIMAL(t[5])
                     , SQL_DAL.GetDBField_DECIMAL(t[6])));
             }
 

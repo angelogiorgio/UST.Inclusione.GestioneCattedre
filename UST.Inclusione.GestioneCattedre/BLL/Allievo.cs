@@ -468,7 +468,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             al = new Allievo((long)t[0], (int)t[1], (int)t[2], (long)t[3], t[4].ToString(), t[5].ToString(), t[6].ToString(), t[7].ToString(),
                                 (DateTime)t[8], t[9].ToString(), t[10].ToString(), t[11].ToString(), (int)t[12], (int)t[13], (int)t[14], (int)t[15], (int)t[16],
                                 (int)t[17], (int)t[18], t[19].ToString(), t[20].ToString(), t[21].ToString(), (int)t[22], (int)t[23], (bool)t[24], (bool)t[25],
-                                (bool)t[26], t[27].ToString(), t[28].ToString(), (long)t[29], t[30].ToString(), t[31].ToString(), t[32].ToString(), (int)t[33], (decimal)t[34]
+                                (bool)t[26], t[27].ToString(), t[28].ToString(), (long)t[29], t[30].ToString(), t[31].ToString(), t[32].ToString(), (int)t[33], SQL_DAL.GetDBField_DECIMAL(t[34])
                       );
 
             al.Get_Allegati();
