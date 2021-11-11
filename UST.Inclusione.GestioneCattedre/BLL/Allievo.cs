@@ -10,6 +10,8 @@ namespace UST.Inclusione.GestioneCattedre.BLL
         static string YES ="SI";
         static string NO = "NO";
 
+
+
         static Boolean Get_Bool(string input)
         {
             Boolean ret = false;
