@@ -5,6 +5,7 @@ using System.Web;
 
 namespace UST.Inclusione.GestioneCattedre.BLL
 {
+    [Serializable]
     public class SQL_DAL
     {
         public class SP_Parameter

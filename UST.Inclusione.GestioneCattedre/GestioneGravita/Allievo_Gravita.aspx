@@ -7,18 +7,17 @@
         <hr style='width: 100%' />
         <p class="btn btn-default">Gestione Gravita Allievo.</p>
     </div>
-    <asp:ObjectDataSource ID="obsIstituti" runat="server" SelectMethod="GetAll" 
-        TypeName="UST.Inclusione.GestioneCattedre.BLL.Istituto" />
+    
 
     <asp:ObjectDataSource ID="obds_Allievi" runat="server" SelectMethod="Get"
-        TypeName="UST.Inclusione.GestioneCattedre.BLL.Allievo" 
+        TypeName="UST.Inclusione.GestioneCattedre.BLL.Allievo"  
         UpdateMethod="SetGravita" ></asp:ObjectDataSource>
 
-    <asp:ObjectDataSource ID="obds_Plessi" runat="server" SelectMethod="GetAll"
-        TypeName="UST.Inclusione.GestioneCattedre.BLL.Plesso"></asp:ObjectDataSource>
+
 
     <asp:FormView ID="frmViewAlunno" DefaultMode="Edit" runat="server" DataSourceID="obds_Allievi"
         Width="100%" AutoPostBack="true" OnItemUpdated="frmViewAlunno_ItemUpdated" OnItemCommand="frmViewAlunno_ItemCommand"
+       
        >
      
         <EditItemTemplate>
@@ -28,6 +27,29 @@
                     <b>ID</b>
                     </asp:TableCell><asp:TableCell Style="padding-top: 10px">
                         <asp:Label runat="server" ID="TextBox1" Text='<%# Bind("ID") %>' ValidateRequestMode="Enabled"></asp:Label>
+                    </asp:TableCell>
+                        <asp:TableCell Style="padding-top: 10px">
+                    <b>Istituto</b>
+                    </asp:TableCell><asp:TableCell Style="padding-top: 10px">
+                        <asp:Label runat="server" ID="TextBox3" Text='<%# Bind("Istituto_Descrizione") %>'
+                            ValidateRequestMode="Enabled" Enabled="false"></asp:Label>
+
+                    </asp:TableCell>
+                    <asp:TableCell Style="padding-top: 10px">
+                    <b>Plesso</b>
+                    </asp:TableCell>
+                    <asp:TableCell Style="padding-top: 10px">
+                        <asp:Label runat="server" ID="Label1" Text='<%# Bind("Plesso_Descrizione") %>'
+                            ValidateRequestMode="Enabled" Enabled="false"></asp:Label>
+
+                    </asp:TableCell>
+                    <asp:TableCell Style="padding-top: 10px">
+                    <b>Anno Scolastico</b>
+                    </asp:TableCell>
+                    <asp:TableCell Style="padding-top: 10px">
+                        <asp:Label runat="server" ID="Label2" Text='<%# Bind("Anno_Descrizione") %>'
+                            ValidateRequestMode="Enabled" Enabled="false"></asp:Label>
+
                     </asp:TableCell>
                 </asp:TableRow>
         

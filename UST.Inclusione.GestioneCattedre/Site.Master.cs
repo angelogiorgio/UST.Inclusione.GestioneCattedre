@@ -9,9 +9,38 @@ namespace UST.Inclusione.GestioneCattedre
 {
     public partial class SiteMaster : MasterPage
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public void LogIn(BLL.Utente user)
         {
+            Login.Text = user.Username;
+            Session.Add("LogIn", user);
+            
+            
 
         }
+
+        private void CheckAccesso()
+        {
+            if (Session["LogIn"] == null)
+            {
+                Login.Text = "Area Riservata";
+                a_Login.Visible = true;
+                a_Logout.Visible = false;
+
+            }
+            else 
+            {
+                BLL.Utente user = (BLL.Utente)Session["LogIn"];
+                Login.Text = user.Username;
+                a_Login.Visible = false;
+                a_Logout.Visible = true;
+
+            }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.CheckAccesso();
+        }
+
     }
 }

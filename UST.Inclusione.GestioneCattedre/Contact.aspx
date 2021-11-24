@@ -2,7 +2,7 @@
     CodeBehind="Contact.aspx.cs" Inherits="UST.Inclusione.GestioneCattedre.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+    
     <div class="jumbotron" style="background-color: lightyellow; border: inherit">
 
         <h2><%: Title %>.</h2>

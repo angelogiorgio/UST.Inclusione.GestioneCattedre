@@ -7,29 +7,20 @@
 // </generato automaticamente>
 //------------------------------------------------------------------------------
 
-namespace UST.Inclusione.GestioneCattedre.GestioneGravita
+namespace UST.Inclusione.GestioneCattedre
 {
 
 
-    public partial class Allievo_Gravita
+    public partial class Login_Page
     {
 
         /// <summary>
-        /// Controllo obds_Allievi.
+        /// Controllo Login1.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource obds_Allievi;
-
-        /// <summary>
-        /// Controllo frmViewAlunno.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView frmViewAlunno;
+        protected global::System.Web.UI.WebControls.Login Login1;
     }
 }

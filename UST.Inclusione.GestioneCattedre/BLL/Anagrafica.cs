@@ -5,6 +5,7 @@ using System.Web;
 
 namespace UST.Inclusione.GestioneCattedre.BLL
 {
+    [Serializable]
     public class Anagrafica: SQL_DAL
     {
         protected string _descrizione = string.Empty;

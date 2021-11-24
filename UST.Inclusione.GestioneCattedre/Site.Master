@@ -103,8 +103,27 @@
 
                         <li><a runat="server" href="~/Contact">Contatti</a></li>
 
+                         <li class="dropdown">
+                            <a id="a_user" href="#" runat="server" class="dropdown-toggle" data-toggle="dropdown" >
+                                <asp:Label ID="Login" runat="server" class="dropdown-toggle" data-toggle="dropdown">Area Riservata</asp:Label>
+                                 <span class="caret"></span></a>
+                                 <ul class="dropdown-menu" role="menu">
+                                <li>
+                                   <a id="a_Login" runat="server" href="~/Login_Page"  visible="true">Accedi</a>
+                            
+                                    <a id="a_Logout" runat="server" href="~/LogOut" visible="false">Esci</a>
+                                </li>
+                            </ul>
+                        </li>                      
+
+                       
                     </ul>
+                   
+
+                   
                 </div>
+                
+                 
             </div>
         </div>
         <div class="container body-content">
