@@ -9,6 +9,11 @@ namespace UST.Inclusione.GestioneCattedre
 {
     public partial class SiteMaster : MasterPage
     {
+        public BLL.Utente User
+        {
+            get { return (BLL.Utente)Session["LogIn"]; } 
+        }
+
         public void LogIn(BLL.Utente user)
         {
             Login.Text = user.Username;

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace UST.Inclusione.GestioneCattedre.BLL
 {
-    public class Allievo: SQL_DAL
+    public class Allievo: Anagrafica
     {
         static string YES ="SI";
         static string NO = "NO";
@@ -229,7 +229,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
                            int oreRichieste_PsicoFisico, int oreRichieste_Audioleso, int oreRichieste_NonVedente, string primoCodice, string secondoCodice,
                            string terzoCodice, int numeroCertificazioniASL, int annoUltimaCertificazione, bool pdf_parte_I, bool pdf_parte_II, 
                            bool ASL_104
-                                , int idGrado, int gravita,decimal datoReale):this()
+                                , int idGrado, int gravita,decimal datoReale, long idUtente):this()
         {
             this._annoScolastico = new AnnoScolastico(idAnnoScolastico);
             this._plesso = new Plesso(idAnnoScolastico, codiceMeccanograficoPlesso, descrizionePlesso,idIstituto,idGrado);
@@ -260,6 +260,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             this._pdf_ASL_104 = ASL_104;
             this._gravita = gravita;
             this._datoReale = datoReale;
+            base.User = new Utente(idUtente);
 
 
 
@@ -270,7 +271,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
                             int oreRichieste_PsicoFisico, int oreRichieste_Audioleso, int oreRichieste_NonVedente, string primoCodice, string secondoCodice, 
                             string terzoCodice, int numeroCertificazioniASL, int annoUltimaCertificazione,bool pdf_parte_I, bool pdf_parte_II,
                             bool ASL_104, string descrizioneGrado, string descrizionePlesso, long idIstituto,string codicemeccanograficoIstituto, string descrizioneIstituto
-                            , string descrizionePeriodo, int gravita, decimal datoReale) : this()
+                            , string descrizionePeriodo, int gravita, decimal datoReale, long idUtente) : this()
         {
             this._annoScolastico = new AnnoScolastico(idAnnoScolastico);
             this._plesso = new Plesso(id_Plesso, descrizionePlesso);
@@ -304,6 +305,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             this._pdf_ASL_104 = ASL_104;
             this._gravita = gravita;
             this._datoReale = datoReale;
+            base.User = new Utente(idUtente);
         }
 
         public Allievo(long ID, int idAnnoScolastico, int idPeriodo, long idPlesso, string cf, string cognome, string nome, string sesso,
@@ -311,13 +313,13 @@ namespace UST.Inclusione.GestioneCattedre.BLL
                         int tempoScuolaClasse, int oreSettimanaliFrequenza, int oreRichieste_PsicoFisico, int oreRichieste_Audioleso, int oreRichieste_NonVedente, string primoCodice, string secondoCodice,
                             string terzoCodice, int numeroCertificazioniASL, int annoUltimaCertificazione,bool pdf_parte_I, bool pdf_parte_II, bool ASL,
                             string descrizioneGrado, string descrizionePlesso, long idIstituto, string codicemeccanograficoIstituto, string descrizioneIstituto
-                            , string descrizionePeriodo, int gravita,decimal datoReale) :
+                            , string descrizionePeriodo, int gravita,decimal datoReale, long idUtente) :
                             this(idAnnoScolastico, idPeriodo,idPlesso, cf, cognome, nome, sesso, datanascita,
                                             luogoNascita, luogoDomicilio, cittadinanza, classe, numeroAllieviClasse, tempoScuolaClasse, oreSettimanaliFrequenza,
                                             oreRichieste_PsicoFisico, oreRichieste_Audioleso, oreRichieste_NonVedente, primoCodice, secondoCodice,
                                             terzoCodice, numeroCertificazioniASL, annoUltimaCertificazione, pdf_parte_I, pdf_parte_II, ASL, descrizioneGrado,
                                               descrizionePlesso,  idIstituto,  codicemeccanograficoIstituto,  descrizioneIstituto
-                            ,  descrizionePeriodo, gravita, datoReale)
+                            ,  descrizionePeriodo, gravita, datoReale, idUtente)
         {
             this._id = ID;
             this.Get_Allegati();
@@ -417,6 +419,8 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@numeroAllieviClasse", this._numeroAllievi));
             list.Add(new SP_Parameter("@numeroCertificazioniASL", this._numeroCertificazioniASL));
             list.Add(new SP_Parameter("@tempoScuolaClasse", this._tempoScuolaClasse));
+            list.Add(new SP_Parameter("@tempoScuolaClasse", this._tempoScuolaClasse));
+            list.Add(new SP_Parameter("@idUtente", base.User.ID));
 
 
             int num = base.Execute_Command("usp_Insert_Allievo", list);
@@ -444,7 +448,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
                                 t[7].ToString(),(DateTime)t[8], t[9].ToString(), t[10].ToString(), t[11].ToString(), (int)t[12], (int)t[13], (int)t[14], (int)t[15], (int)t[16],
                                 (int)t[17], (int)t[18], t[19].ToString(), t[20].ToString(), t[21].ToString(), (int)t[22], (int)t[23], (bool)t[24], (bool)t[25], 
                                 (bool)t[26], t[27].ToString(), t[28].ToString(), (long)t[29], t[30].ToString(), t[31].ToString(), 
-                                t[32].ToString(),(int)t[33], SQL_DAL.GetDBField_DECIMAL(t[34])));
+                                t[32].ToString(),(int)t[33], SQL_DAL.GetDBField_DECIMAL(t[34]), SQL_DAL.GetDBField_LONG(t[35])));
      
             }
             
@@ -468,8 +472,9 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             al = new Allievo((long)t[0], (int)t[1], (int)t[2], (long)t[3], t[4].ToString(), t[5].ToString(), t[6].ToString(), t[7].ToString(),
                                 (DateTime)t[8], t[9].ToString(), t[10].ToString(), t[11].ToString(), (int)t[12], (int)t[13], (int)t[14], (int)t[15], (int)t[16],
                                 (int)t[17], (int)t[18], t[19].ToString(), t[20].ToString(), t[21].ToString(), (int)t[22], (int)t[23], (bool)t[24], (bool)t[25],
-                                (bool)t[26], t[27].ToString(), t[28].ToString(), (long)t[29], t[30].ToString(), t[31].ToString(), t[32].ToString(), (int)t[33], SQL_DAL.GetDBField_DECIMAL(t[34])
-                      );
+                                (bool)t[26], t[27].ToString(), t[28].ToString(), (long)t[29], t[30].ToString(), t[31].ToString(), t[32].ToString(), (int)t[33],
+                                SQL_DAL.GetDBField_DECIMAL(t[34]), SQL_DAL.GetDBField_LONG(t[35]));
+                      
 
             al.Get_Allegati();
         
@@ -574,9 +579,11 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@numeroAllieviClasse", this._numeroAllievi));
             list.Add(new SP_Parameter("@numeroCertificazioniASL", this._numeroCertificazioniASL));
             list.Add(new SP_Parameter("@tempoScuolaClasse", this._tempoScuolaClasse));
+            list.Add(new SP_Parameter("@idUtente", base.User.ID));
 
 
             int num = base.Execute_Command("usp_Update_Allievo", list);
+
 
             return num;
 

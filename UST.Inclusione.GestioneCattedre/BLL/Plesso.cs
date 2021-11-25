@@ -120,6 +120,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@citta", this._città));
             list.Add(new SP_Parameter("@indirizzo", this._indirizzo));
             list.Add(new SP_Parameter("@idGrado", this._grado.ID));
+            list.Add(new SP_Parameter("@idUtente", base.User.ID));
 
             int num = base.Execute_Command("usp_Insert_Plesso", list);
 
@@ -143,6 +144,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@citta", città));
             list.Add(new SP_Parameter("@indirizzo", indirizzo));
             list.Add(new SP_Parameter("@idGrado", idGrado));
+            list.Add(new SP_Parameter("@idUtente", base.User.ID));
 
 
             int num = base.Execute_Command("usp_Insert_Plesso", list);
@@ -162,6 +164,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@citta", città));
             list.Add(new SP_Parameter("@indirizzo", indirizzo));
             list.Add(new SP_Parameter("@idGrado", idGrado));
+            list.Add(new SP_Parameter("@idUtente", base.User.ID));
 
 
             int num = base.Execute_Command("usp_Update_Plesso", list);

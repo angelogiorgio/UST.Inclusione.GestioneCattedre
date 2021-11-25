@@ -11,6 +11,15 @@ namespace UST.Inclusione.GestioneCattedre.BLL
         protected string _descrizione = string.Empty;
         protected long _id = int.MinValue;
 
+        private Utente _user = null;
+
+        public Utente User
+        {
+            get { return this._user; }
+            set { this._user = value; }
+
+        }
+
         public string Descrizione
         {
             get { return this._descrizione; }

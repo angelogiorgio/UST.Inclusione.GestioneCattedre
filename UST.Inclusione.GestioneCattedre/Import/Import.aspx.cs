@@ -12,6 +12,15 @@ namespace UST.Inclusione.GestioneCattedre.Import
 {
     public partial class Import : System.Web.UI.Page
     {
+
+        private BLL.Utente User
+        {
+            get { 
+                SiteMaster st = (SiteMaster)this.Master; ;
+                return st.User;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -167,12 +176,12 @@ namespace UST.Inclusione.GestioneCattedre.Import
                                 Boolean Allievo_Verbale104 = false;
                                 Boolean.TryParse(reader[23].ToString(), out Allievo_Verbale104);
 
-                                BLL.Allievo allievo = new BLL.Allievo(idAnnoScolastico, idPeriodo, idIstituto, CodiceMeccanograficoPlesso, IndirizzoPlesso, Allievo_CF, Allievo_cognome_nome, 
+                                BLL.Allievo allievo = new BLL.Allievo(idAnnoScolastico, idPeriodo, idIstituto, CodiceMeccanograficoPlesso, IndirizzoPlesso, Allievo_CF, Allievo_cognome_nome,
                                     Allievo_cognome_nome, Allievo_sesso,
                                     Allievo_dataNascita, Allievo_luogoNascita, Allievo_luogoDomicilio, Allievo_cittadinanza, Allievo_classe, Classe_NumeroAllievi,
                                     Classe_TempoScuola, Classe_OreSettimanali, Allievo_OrePsicoFisico, Allievo_Audioleso, Allievo_NonVedente, Allievo_PrimoCodice, Allievo_SecondoCodice,
-                                        Allievo_TerzoCodice, Allievo_ASL_NumeroCetificazioni,  Allievo_AnnoUltimaCertificazione, Allievo_PDF_Parte_1,
-                                        Allievo_PDF_Parte_2, Allievo_Verbale104, idGrado,0,0);
+                                        Allievo_TerzoCodice, Allievo_ASL_NumeroCetificazioni, Allievo_AnnoUltimaCertificazione, Allievo_PDF_Parte_1,
+                                        Allievo_PDF_Parte_2, Allievo_Verbale104, idGrado, 0, 0, this.User.ID);
 
                                 allievo.Insert();
                             }

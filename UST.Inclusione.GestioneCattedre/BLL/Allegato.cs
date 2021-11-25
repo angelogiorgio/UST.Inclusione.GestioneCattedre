@@ -5,7 +5,7 @@ using System.Web;
 
 namespace UST.Inclusione.GestioneCattedre.BLL
 {
-    public class Allegato : SQL_DAL
+    public class Allegato : Anagrafica
     {
 
 
@@ -67,6 +67,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@file", this._bytes));
             list.Add(new SP_Parameter("@fileType", this._contentType));
             list.Add(new SP_Parameter("@tipo",(int)this._tipo_file));
+            list.Add(new SP_Parameter("@idUtente", base.User.ID));
             int num = base.Execute_Command("usp_Insert_Allegato", list);
 
             return ret;

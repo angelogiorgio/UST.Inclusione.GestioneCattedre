@@ -99,13 +99,15 @@ namespace UST.Inclusione.GestioneCattedre.BLL
 
         }
 
-        public int Update(long id, string codiceMeccanografico, string descrizione, int idAnnoScolastico)
+        public int Update(long idUser, long id, string codiceMeccanografico, string descrizione, int idAnnoScolastico)
         {
             List<SQL_DAL.SP_Parameter> list = new List<SP_Parameter>();
             list.Add(new SP_Parameter("@id", id));
             list.Add(new SP_Parameter("@idannoScolastico", idAnnoScolastico));
             list.Add(new SP_Parameter("@codiceMaccanografico", codiceMeccanografico));
             list.Add(new SP_Parameter("@nome", descrizione));
+            list.Add(new SP_Parameter("@idUtente", idUser));
+            
             int num = base.Execute_Command("usp_Update_Istituto", list);
 
             return num;
@@ -117,6 +119,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@idIstituto", id));
             list.Add(new SP_Parameter("@idas", id_annoScolastico));
             list.Add(new SP_Parameter("@numeroCattedre", numeroCattedre));
+            list.Add(new SP_Parameter("@idUtente", base.User.ID));
 
             int num = base.Execute_Command("usp_Set_Cattedre", list);
 
@@ -150,12 +153,14 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             return ist;
         }
 
-        public int Insert(string codiceMeccanografico,  string nome, int idAnnoScolastico)
+        public int Insert(long idUser,string codiceMeccanografico,  string nome, int idAnnoScolastico)
         {
             List<SQL_DAL.SP_Parameter> list = new List<SP_Parameter>();
             list.Add(new SP_Parameter("@idannoScolastico", idAnnoScolastico));
             list.Add(new SP_Parameter("@codiceMaccanografico", codiceMeccanografico));
             list.Add(new SP_Parameter("@nome", nome));
+            list.Add(new SP_Parameter("@idUtente", idUser));
+
             int num = base.Execute_Command("usp_Insert_Istituto", list);
             
             return num;

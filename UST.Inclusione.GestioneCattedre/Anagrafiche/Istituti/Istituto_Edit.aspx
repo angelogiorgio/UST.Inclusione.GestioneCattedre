@@ -35,6 +35,7 @@
                     <tr>
                         <td><b>ID</b></td>
                         <td>
+                           
                             <asp:Label runat="server" ID="TextBox1" Text='<%# Bind("id") %>'></asp:Label>
                         </td>
                     </tr>

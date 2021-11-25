@@ -18,6 +18,11 @@ namespace UST.Inclusione.GestioneCattedre.BLL
         private string _cognome = string.Empty;
         private string _nome = string.Empty;
 
+        public long ID
+        {
+            get { return this._id; }
+        }
+
         public string Username
         {
             get { return this._username; }
@@ -43,6 +48,11 @@ namespace UST.Inclusione.GestioneCattedre.BLL
         public string Nome
         {
             get { return this._nome; }
+        }
+
+        public Utente(long id)
+        {
+            this._id = id;
         }
 
         public Utente(string username, string password)

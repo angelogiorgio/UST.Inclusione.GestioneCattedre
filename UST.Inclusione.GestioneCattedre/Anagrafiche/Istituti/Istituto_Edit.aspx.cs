@@ -9,6 +9,20 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Istituti
 {
     public partial class Istituto_New : System.Web.UI.Page
     {
+        public long ID_User
+        {
+            get { return this.User.ID; }
+        }
+
+        private BLL.Utente User
+        {
+            get
+            {
+                SiteMaster st = (SiteMaster)this.Master; ;
+                return st.User;
+            }
+        }
+
         public string GetBool(bool val)
         {
             if (val)
@@ -32,17 +46,22 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Istituti
             if (Request.Params["id"] == null)
             {
                 frm_Edit_Istiuto.ChangeMode(FormViewMode.Insert);
-               
+                obsIstituto.InsertParameters.Add("idUser", ID_User.ToString());
+
+
             }
             else
             {
                 frm_Edit_Istiuto.ChangeMode(FormViewMode.Edit);
+                obsIstituto.UpdateParameters.Add("idUser", ID_User.ToString());
 
                 frm_Edit_Istiuto.ChangeMode(FormViewMode.Edit);
                 if (obsIstituto.SelectParameters.Count == 0)
                     obsIstituto.SelectParameters.Add(new Parameter("id", System.Data.DbType.String, Request.Params["id"].ToString()));
                 if (obsIstituto.DeleteParameters.Count == 0)
                     obsIstituto.DeleteParameters.Add(new Parameter("id", System.Data.DbType.String, Request.Params["id"].ToString()));
+
+
 
                 obsPlesso.SelectParameters.Add("id", Request.Params["id"].ToString());
 
