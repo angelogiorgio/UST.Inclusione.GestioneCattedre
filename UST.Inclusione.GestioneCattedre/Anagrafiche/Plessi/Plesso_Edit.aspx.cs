@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Plessi
 {
-    public partial class Plesso_Edit : System.Web.UI.Page
+    public partial class Plesso_Edit : _base
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,12 +19,13 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Plessi
             if (Request.Params["id"] == null)
             {
 
-
+                obsPlesso.InsertParameters.Add("idUser", ID_User.ToString());
 
             }
             else
             {
                 frmView.DefaultMode = FormViewMode.Edit;
+                obsPlesso.InsertParameters.Add("idUser", ID_User.ToString());
 
                 if (obsPlesso.SelectParameters.Count == 0)
                     obsPlesso.SelectParameters.Add(new Parameter("id", System.Data.DbType.String, Request.Params["id"].ToString()));

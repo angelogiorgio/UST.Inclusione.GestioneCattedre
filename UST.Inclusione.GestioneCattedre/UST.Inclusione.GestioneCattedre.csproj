@@ -144,6 +144,7 @@
     <Content Include="About.aspx" />
     <Content Include="Anagrafiche\Allievi\Allievi.aspx" />
     <Content Include="Anagrafiche\Allievi\Allievo_Edit.aspx" />
+    <Content Include="Anagrafiche\base.aspx" />
     <Content Include="Anagrafiche\Istituti\Istituti.aspx" />
     <Content Include="Anagrafiche\Istituti\Istituto_Edit.aspx" />
     <Content Include="Anagrafiche\Plessi\Plessi.aspx" />
@@ -226,6 +227,13 @@
     </Compile>
     <Compile Include="Anagrafiche\Allievi\Allievo_Edit.aspx.designer.cs">
       <DependentUpon>Allievo_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Anagrafiche\base.aspx.cs">
+      <DependentUpon>base.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anagrafiche\base.aspx.designer.cs">
+      <DependentUpon>base.aspx</DependentUpon>
     </Compile>
     <Compile Include="Anagrafiche\Istituti\Istituti.aspx.cs">
       <DependentUpon>Istituti.aspx</DependentUpon>

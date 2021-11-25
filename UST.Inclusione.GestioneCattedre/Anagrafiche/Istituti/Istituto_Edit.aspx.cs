@@ -7,21 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Istituti
 {
-    public partial class Istituto_New : System.Web.UI.Page
+    public partial class Istituto_New : _base
     {
-        public long ID_User
-        {
-            get { return this.User.ID; }
-        }
-
-        private BLL.Utente User
-        {
-            get
-            {
-                SiteMaster st = (SiteMaster)this.Master; ;
-                return st.User;
-            }
-        }
 
         public string GetBool(bool val)
         {

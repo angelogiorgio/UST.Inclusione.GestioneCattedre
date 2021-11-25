@@ -134,7 +134,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             return num;
         }
 
-        public int Insert(int idAnnoScolastico, long idIstituto, string codiceMeccanografico, string descrizione, string città, string indirizzo, int idGrado)
+        public int Insert(long idUser,  int idAnnoScolastico, long idIstituto, string codiceMeccanografico, string descrizione, string città, string indirizzo, int idGrado)
         {
             List<SQL_DAL.SP_Parameter> list = new List<SP_Parameter>();
             list.Add(new SP_Parameter("@idannoScolastico", idAnnoScolastico));
@@ -144,7 +144,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@citta", città));
             list.Add(new SP_Parameter("@indirizzo", indirizzo));
             list.Add(new SP_Parameter("@idGrado", idGrado));
-            list.Add(new SP_Parameter("@idUtente", base.User.ID));
+            list.Add(new SP_Parameter("@idUtente", idUser));
 
 
             int num = base.Execute_Command("usp_Insert_Plesso", list);
@@ -152,7 +152,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             return num;
         }
 
-        public int Update(long id, int idAnnoScolastico, long idIstituto, string codiceMeccanografico, string descrizione, string città, string indirizzo,
+        public int Update(long idUser, long id, int idAnnoScolastico, long idIstituto, string codiceMeccanografico, string descrizione, string città, string indirizzo,
             int idGrado)
         {
             List<SQL_DAL.SP_Parameter> list = new List<SP_Parameter>();
@@ -164,7 +164,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@citta", città));
             list.Add(new SP_Parameter("@indirizzo", indirizzo));
             list.Add(new SP_Parameter("@idGrado", idGrado));
-            list.Add(new SP_Parameter("@idUtente", base.User.ID));
+            list.Add(new SP_Parameter("@idUtente", idUser));
 
 
             int num = base.Execute_Command("usp_Update_Plesso", list);
