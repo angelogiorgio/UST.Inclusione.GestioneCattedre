@@ -11,17 +11,18 @@
     <asp:ObjectDataSource ID="obsIstituti" runat="server" SelectMethod="GetAll" TypeName="UST.Inclusione.GestioneCattedre.BLL.Istituto" />
 
     <asp:ObjectDataSource ID="obds_Allievi" runat="server" SelectMethod="Get"
-        TypeName="UST.Inclusione.GestioneCattedre.BLL.Allievo" InsertMethod="Insert"
+        TypeName="UST.Inclusione.GestioneCattedre.BLL.Allievo" InsertMethod="Insert" 
         UpdateMethod="Update" DeleteMethod="Delete"></asp:ObjectDataSource>
 
-    <asp:ObjectDataSource ID="obds_Plessi" runat="server" SelectMethod="GetAll"
+    <asp:ObjectDataSource ID="obds_Plessi" runat="server" SelectMethod="GetAll" 
         TypeName="UST.Inclusione.GestioneCattedre.BLL.Plesso"></asp:ObjectDataSource>
 
     <asp:FormView ID="frmViewAlunno" DefaultMode="Insert" runat="server" DataSourceID="obds_Allievi"
         Width="100%" AutoPostBack="true" OnItemUpdated="frmViewAlunno_ItemUpdated"
         OnItemDeleted="frmViewAlunno_ItemDeleted"
         OnItemInserted="frmViewAlunno_ItemInserted" 
-        OnItemCommand="frmViewAlunno_ItemCommand">
+        OnItemCommand="frmViewAlunno_ItemCommand" 
+        OnItemUpdating="frmViewAlunno_ItemUpdating">
         <InsertItemTemplate>
                <script type="text/javascript">
                    function disable() {
@@ -77,8 +78,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:DropDownList ID="ddlIstituti" runat="server" DataSourceID="obsIstituti" DataTextField="Nome"
-                            AutoPostBack="true" OnSelectedIndexChanged="ddlIstituti_SelectedIndexChanged"
-                             OnTextChanged="ddlIstituti_Init"
+                            AutoPostBack="true" OnInit="ddlIstituti_Init" OnSelectedIndexChanged="ddlIstituti_SelectedIndexChanged"
                             DataValueField="ID">
                         </asp:DropDownList>
                     </asp:TableCell>
@@ -435,8 +435,7 @@
                             CommandName="Cancel" OnClientClick="disable();return confirm('Vuoi annullare l\'inserimento?');"
                             runat="server" />
                         &nbsp;
-                    </asp:TableCell></asp:TableRow></asp:Table></InsertItemTemplate>
-        <EditItemTemplate>
+                    </asp:TableCell></asp:TableRow></asp:Table></InsertItemTemplate><EditItemTemplate>
                <script type="text/javascript">
                    function disable() {
                        ValidatorEnable(document.getElementById('<%=frmViewAlunno.Controls[0].FindControl("rfv_1").ClientID%>'), false);
@@ -488,15 +487,19 @@
                         <b>Istituto</b>
                     </asp:TableCell><asp:TableCell>
                         <asp:DropDownList ID="ddlIstituti" runat="server" DataSourceID="obsIstituti" DataTextField="Nome"
-                            AutoPostBack="true" OnSelectedIndexChanged="ddlIstituti_SelectedIndexChanged"
-                            OnDataBound="ddlIstituti_Init"
+                            AutoPostBack="true" OnSelectedIndexChanged="ddlIstituti_SelectedIndexChanged" 
+                            OnDataBound="ddlIstituti_DataBound"
+                            SelectedValue='<%# Bind("idIstituto") %>'
+                            
                             DataValueField="ID">
                         </asp:DropDownList>
                     </asp:TableCell><asp:TableCell Style="padding: 2px">
                         <b>Plesso</b>
                     </asp:TableCell><asp:TableCell>
                         <asp:DropDownList ID="ddlPlessi" runat="server" DataSourceID="obds_Plessi" DataTextField="Descrizione"
-                            AutoPostBack="true" SelectedValue='<%# Bind("idPlesso") %>'
+                          SelectedValue='<%# Bind("idPlesso") %>'
+                            
+                            AutoPostBack="true" 
                             DataValueField="ID">
                         </asp:DropDownList>
                     </asp:TableCell><asp:TableCell Style="padding: 2px">
