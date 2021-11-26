@@ -17,6 +17,7 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
             else
                 return "NO";
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {           
             if (Request.Params["id"] == null)
