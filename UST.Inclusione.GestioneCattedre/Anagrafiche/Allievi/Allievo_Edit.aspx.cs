@@ -24,18 +24,10 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
             {
                 frmViewAlunno.ChangeMode(FormViewMode.Insert);
                 obsIstituti.DataBind();
-
-          
-
-
-
+                
                 DropDownList ddlPlessi = (DropDownList)frmViewAlunno.Controls[0].FindControl("ddlPlessi");
                 obds_Allievi.InsertParameters.Add("idPlesso", ddlPlessi.SelectedValue);
                 obds_Allievi.InsertParameters.Add("idUser", ID_User.ToString());
-
-
-
-
             }
             else
             {
@@ -46,12 +38,6 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
                 obds_Allievi.DeleteParameters.Clear();
                 obds_Allievi.DeleteParameters.Add(new Parameter("id", System.Data.DbType.String, Request.Params["id"].ToString()));
                 obds_Allievi.UpdateParameters.Add("idUser", ID_User.ToString());
-
-
-
-
-
-
             }
 
 
@@ -68,7 +54,6 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
 
             obds_Allievi.InsertParameters.Add("idPlesso", ddlPlessi.SelectedValue);
 
-
         }
 
         protected void ddlIstituti_Init(object sender, EventArgs e)
@@ -82,7 +67,7 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
 
         protected void frmViewAlunno_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
         {           
-           // Response.Redirect(@"~/Anagrafiche/Allievi/Allievi.aspx");
+           Response.Redirect(@"~/Anagrafiche/Allievi/Allievi.aspx");
 
         }
 
@@ -94,7 +79,7 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
 
         protected void frmViewAlunno_ItemInserted(object sender, FormViewInsertedEventArgs e)
         {
-            //Response.Redirect(@"~/Anagrafiche/Allievi/Allievi.aspx");
+            Response.Redirect(@"~/Anagrafiche/Allievi/Allievi.aspx");
 
         }
 
