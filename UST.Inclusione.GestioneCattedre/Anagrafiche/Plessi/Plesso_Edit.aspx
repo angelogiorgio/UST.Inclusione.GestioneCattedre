@@ -53,7 +53,7 @@
                         <td>
                             <asp:DropDownList ID="ddlIstituto" runat="server" DataSourceID="odsIstituti"
                                 DataValueField="ID" SelectedValue='<%# Bind("idIstituto") %>'
-                                DataTextField="Nome">
+                                DataTextField="Descrizione">
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="rfv_2" runat="server" ControlToValidate="ddlIstituto"
                                 ErrorMessage="*"></asp:RequiredFieldValidator>

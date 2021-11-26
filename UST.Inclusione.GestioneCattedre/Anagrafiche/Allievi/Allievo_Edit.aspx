@@ -78,7 +78,7 @@
                     <asp:TableCell>
                         <asp:DropDownList ID="ddlIstituti" runat="server" DataSourceID="obsIstituti" DataTextField="Nome"
                             AutoPostBack="true" OnSelectedIndexChanged="ddlIstituti_SelectedIndexChanged"
-                            OnDataBound="ddlIstituti_Init"
+                             OnTextChanged="ddlIstituti_Init"
                             DataValueField="ID">
                         </asp:DropDownList>
                     </asp:TableCell>

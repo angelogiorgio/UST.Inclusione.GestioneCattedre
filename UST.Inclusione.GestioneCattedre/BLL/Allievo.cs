@@ -339,7 +339,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
         }
 
 
-        public int Insert(int idPlesso, int idAnnoScolastico, int idPeriodo, string cf,string nome, string cognome, string sesso, string dataNascita, string luogoNascita, string luogoDomicilio,
+        public int Insert(long idUser,int idPlesso, int idAnnoScolastico, int idPeriodo, string cf,string nome, string cognome, string sesso, string dataNascita, string luogoNascita, string luogoDomicilio,
             string cittadinanza, string classe, string numeroAllieviClasse, string tempoScuolaClasse, string oreSettimanaliFrequenza,
             string oreRichieste_PsicoFisiche, string oreRichieste_Audiolesi, string oreRichieste_NonVedente,
             string primoCodice, string secondoCodice, string terzoCodice, string annoUltimaCertificazione,
@@ -373,6 +373,8 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             this._pdf_parte_I = Get_Bool(pdf_Parte_I);
             this._pdf_parte_II =Get_Bool(pdf_Parte_II);
             this._pdf_ASL_104 = Get_Bool(asl_104);
+            base.User = new Utente(idUser);
+      
 
             int num = InsertDB();
 
@@ -418,8 +420,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@oreRichieste_AudioLesi", this._oreRichieste_Audioleso));
             list.Add(new SP_Parameter("@numeroAllieviClasse", this._numeroAllievi));
             list.Add(new SP_Parameter("@numeroCertificazioniASL", this._numeroCertificazioniASL));
-            list.Add(new SP_Parameter("@tempoScuolaClasse", this._tempoScuolaClasse));
-            list.Add(new SP_Parameter("@tempoScuolaClasse", this._tempoScuolaClasse));
+            list.Add(new SP_Parameter("@tempoScuolaClasse", this._tempoScuolaClasse));          
             list.Add(new SP_Parameter("@idUtente", base.User.ID));
 
 
@@ -513,7 +514,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
         }
 
 
-        public int Update(int ID,int idPlesso, int idAnnoScolastico, int idPeriodo, 
+        public int Update(long idUser,int ID,int idPlesso, int idAnnoScolastico, int idPeriodo, 
             string cf, string nome, string cognome, string sesso, string dataNascita, string luogoNascita, string luogoDomicilio,
             string cittadinanza, string classe, string numeroAllievi, string TempoScuolaClasse, string OreSettimanaliPresenza,
             string OreRichieste_PiscoFisico, string OreRichieste_Audioleso, string OreRichieste_NonVedente,
@@ -549,7 +550,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             this._pdf_parte_I = PDF_Parte_I;
             this._pdf_parte_II = PDF_Parte_II;
             this._pdf_ASL_104 = asl_104;
-
+            base.User = new Utente(idUser);
 
             List<SQL_DAL.SP_Parameter> list = new List<SP_Parameter>();
             list.Add(new SP_Parameter("@id", this.ID));

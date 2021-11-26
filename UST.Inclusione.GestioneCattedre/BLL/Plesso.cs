@@ -134,7 +134,8 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             return num;
         }
 
-        public int Insert(long idUser,  int idAnnoScolastico, long idIstituto, string codiceMeccanografico, string descrizione, string città, string indirizzo, int idGrado)
+        public int Insert(long idUser,  int idAnnoScolastico, long idIstituto, string codiceMeccanografico, 
+            string descrizione, string città, string indirizzo, int idGrado)
         {
             List<SQL_DAL.SP_Parameter> list = new List<SP_Parameter>();
             list.Add(new SP_Parameter("@idannoScolastico", idAnnoScolastico));

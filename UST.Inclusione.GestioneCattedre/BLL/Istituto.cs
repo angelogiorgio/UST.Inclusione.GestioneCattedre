@@ -54,7 +54,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
         {
             this._annoScolastico = new AnnoScolastico(idannoScolastico);
             this._codiceMeccanografico = codice;
-            this._nome = nome;
+            this._descrizione = this._nome = nome;
         }
 
         public Istituto(long id, string codice, string nome, int idannoScolastico, string annoscolasticodescrizione) : this(id, codice, nome, idannoScolastico)

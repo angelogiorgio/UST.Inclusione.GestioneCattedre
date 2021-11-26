@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
 {
-    public partial class Allievo_Edit : System.Web.UI.Page
+    public partial class Allievo_Edit : _base
     {
 
         public string GetBool(string val)
@@ -23,13 +23,17 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
             {
                 frmViewAlunno.ChangeMode(FormViewMode.Insert);
 
-                DropDownList ddlPlessi = (DropDownList)frmViewAlunno.Controls[0].FindControl("ddlPlessi");
-                obds_Allievi.InsertParameters.Add("idPlesso", ddlPlessi.SelectedValue);
+                //DropDownList ddlPlessi = (DropDownList)frmViewAlunno.Controls[0].FindControl("ddlPlessi");
+               
+                obds_Allievi.InsertParameters.Add("idUser", ID_User.ToString());
 
 
             }
             else
             {
+
+                obds_Allievi.UpdateParameters.Add("idUser", ID_User.ToString());
+
                 frmViewAlunno.ChangeMode(FormViewMode.Edit);
                 obds_Allievi.SelectParameters.Clear();
                 obds_Allievi.SelectParameters.Add(new Parameter("id", System.Data.DbType.String, Request.Params["id"].ToString()));
@@ -61,9 +65,11 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
 
         protected void ddlIstituti_Init(object sender, EventArgs e)
         {
+            
             DropDownList ddl = (DropDownList)frmViewAlunno.Controls[0].FindControl("ddlIstituti");
             obds_Plessi.SelectParameters.Clear();
             obds_Plessi.SelectParameters.Add("idIstituto", ddl.SelectedValue);
+            
 
         }
 

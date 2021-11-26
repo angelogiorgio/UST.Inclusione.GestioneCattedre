@@ -25,7 +25,7 @@ namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Plessi
             else
             {
                 frmView.DefaultMode = FormViewMode.Edit;
-                obsPlesso.InsertParameters.Add("idUser", ID_User.ToString());
+                obsPlesso.UpdateParameters.Add("idUser", ID_User.ToString());
 
                 if (obsPlesso.SelectParameters.Count == 0)
                     obsPlesso.SelectParameters.Add(new Parameter("id", System.Data.DbType.String, Request.Params["id"].ToString()));
