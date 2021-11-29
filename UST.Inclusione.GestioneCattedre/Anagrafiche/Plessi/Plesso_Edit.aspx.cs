@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Plessi
 {
-    public partial class Plesso_Edit : _base
+    public partial class Plesso_Edit : Anagrafiche._basePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

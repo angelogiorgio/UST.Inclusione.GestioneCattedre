@@ -38,7 +38,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
         {
         }
 
-            public Allegato(long id)
+        public Allegato(long id)
         {
             this._id = id;
         }
@@ -48,13 +48,14 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             this._nome = nome;
 
         }
-        public Allegato(long idAllievo, string nome, byte[] byteIn,string contentType, TIPO_FILE tipo)
+        public Allegato(long idAllievo, string nome, byte[] byteIn,string contentType, TIPO_FILE tipo, Utente user)
         {
             this._nome = nome;
             this._bytes = byteIn;
             this._idAllievo = idAllievo;
             this._contentType = contentType;
             this._tipo_file = tipo;
+            base.User = user;
         }
 
         public bool Save()

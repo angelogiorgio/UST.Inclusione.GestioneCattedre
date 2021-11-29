@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace UST.Inclusione.GestioneCattedre.GestioneGravita
 {
-    public partial class Gestione_Allegati : System.Web.UI.Page
+    public partial class Gestione_Allegati : Anagrafiche._basePage
     {
         private long ID_Allievo
         {
@@ -107,7 +107,7 @@ namespace UST.Inclusione.GestioneCattedre.GestioneGravita
                             byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
                             //This line of code is reading the bytes .    
-                            BLL.Allegato allegato_pdf_Parte_I = new BLL.Allegato(ID_Allievo, file1.FileName, bytes, file1.PostedFile.ContentType, BLL.Allegato.TIPO_FILE.TIPO_PDF_PARTE_I);
+                            BLL.Allegato allegato_pdf_Parte_I = new BLL.Allegato(ID_Allievo, file1.FileName, bytes, file1.PostedFile.ContentType, BLL.Allegato.TIPO_FILE.TIPO_PDF_PARTE_I, base.Utente);
                             allegato_pdf_Parte_I.Save();                          
                         }
                     }
@@ -125,7 +125,7 @@ namespace UST.Inclusione.GestioneCattedre.GestioneGravita
                             byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
                             //This line of code is reading the bytes .    
-                            BLL.Allegato allegato_pdf_Parte_I = new BLL.Allegato(ID_Allievo, file2.FileName, bytes, file2.PostedFile.ContentType, BLL.Allegato.TIPO_FILE.TIPO_PDF_PARTE_II);
+                            BLL.Allegato allegato_pdf_Parte_I = new BLL.Allegato(ID_Allievo, file2.FileName, bytes, file2.PostedFile.ContentType, BLL.Allegato.TIPO_FILE.TIPO_PDF_PARTE_II, base.Utente);
                             allegato_pdf_Parte_I.Save();
                         }
                     }
@@ -144,7 +144,7 @@ namespace UST.Inclusione.GestioneCattedre.GestioneGravita
                             byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
                             //This line of code is reading the bytes .    
-                            BLL.Allegato allegato_pdf_Parte_I = new BLL.Allegato(ID_Allievo, fileASL.FileName, bytes, fileASL.PostedFile.ContentType, BLL.Allegato.TIPO_FILE.TIPO_Verbale_104_ASL);
+                            BLL.Allegato allegato_pdf_Parte_I = new BLL.Allegato(ID_Allievo, fileASL.FileName, bytes, fileASL.PostedFile.ContentType, BLL.Allegato.TIPO_FILE.TIPO_Verbale_104_ASL, base.Utente);
                             allegato_pdf_Parte_I.Save();
                         }
                     }

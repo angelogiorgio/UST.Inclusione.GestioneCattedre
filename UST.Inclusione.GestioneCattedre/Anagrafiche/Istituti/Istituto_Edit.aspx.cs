@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Istituti
 {
-    public partial class Istituto_New : _base
+    public partial class Istituto_New : Anagrafiche._basePage
     {
 
         public string GetBool(bool val)

@@ -7,15 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace UST.Inclusione.GestioneCattedre.Anagrafiche
 {
-    public partial class _base : System.Web.UI.Page
+    public partial class _basePage : System.Web.UI.Page
     {
 
         public long ID_User
         {
-            get { return this.User.ID; }
+            get { return this.Utente.ID; }
         }
 
-        private BLL.Utente User
+        protected BLL.Utente Utente
         {
             get
             {

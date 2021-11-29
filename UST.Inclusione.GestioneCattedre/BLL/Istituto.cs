@@ -113,13 +113,13 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             return num;
         }
 
-        public int UpdateCattedre(long id, long id_annoScolastico, int numeroCattedre)
+        public int UpdateCattedre(long idUser,long id, long id_annoScolastico, int numeroCattedre)
         {
             List<SQL_DAL.SP_Parameter> list = new List<SP_Parameter>();
             list.Add(new SP_Parameter("@idIstituto", id));
             list.Add(new SP_Parameter("@idas", id_annoScolastico));
             list.Add(new SP_Parameter("@numeroCattedre", numeroCattedre));
-            list.Add(new SP_Parameter("@idUtente", base.User.ID));
+            list.Add(new SP_Parameter("@idUser", idUser));
 
             int num = base.Execute_Command("usp_Set_Cattedre", list);
 

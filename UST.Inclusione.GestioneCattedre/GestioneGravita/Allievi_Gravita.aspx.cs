@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UST.Inclusione.GestioneCattedre.GestioneGravita
 {
-    public partial class Allievi_Gravita : System.Web.UI.Page
+    public partial class Allievi_Gravita : Anagrafiche._basePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

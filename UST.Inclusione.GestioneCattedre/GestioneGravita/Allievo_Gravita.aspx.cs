@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UST.Inclusione.GestioneCattedre.GestioneGravita
 {
-    public partial class Allievo_Gravita : System.Web.UI.Page
+    public partial class Allievo_Gravita : Anagrafiche._basePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,6 +29,9 @@ namespace UST.Inclusione.GestioneCattedre.GestioneGravita
                 obds_Allievi.DeleteParameters.Clear();
                 obds_Allievi.DeleteParameters.Add(new Parameter("id", System.Data.DbType.String, Request.Params["id"].ToString()));
 
+                obds_Allievi.UpdateParameters.Add("idUser", ID_User.ToString());
+
+
 
 
 
@@ -40,7 +43,7 @@ namespace UST.Inclusione.GestioneCattedre.GestioneGravita
        
         protected void frmViewAlunno_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
         {
-        //   Response.Redirect(@"~/GestioneGravita/Allievi_Gravita.aspx");
+          Response.Redirect(@"~/GestioneGravita/Allievi_Gravita.aspx");
 
         }
 

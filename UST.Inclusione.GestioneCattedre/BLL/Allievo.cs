@@ -345,7 +345,9 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             string primoCodice, string secondoCodice, string terzoCodice, string annoUltimaCertificazione,
             string asl_NumeroCertificazioni, string pdf_Parte_I, string pdf_Parte_II, string asl_104)
         {
-            this._plesso = new Plesso(idPlesso);
+            base.User = new Utente(idUser);
+
+            this._plesso = new Plesso(idPlesso, base.User);
             this._annoScolastico = new AnnoScolastico(idAnnoScolastico);
             this._periodo = new Periodo(idPeriodo);
             this._CF = cf;
@@ -373,8 +375,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             this._pdf_parte_I = Get_Bool(pdf_Parte_I);
             this._pdf_parte_II =Get_Bool(pdf_Parte_II);
             this._pdf_ASL_104 = Get_Bool(asl_104);
-            base.User = new Utente(idUser);
-      
+          
 
             int num = InsertDB();
 
@@ -383,6 +384,8 @@ namespace UST.Inclusione.GestioneCattedre.BLL
 
         public int Insert()
         {
+            this._plesso.User = base.User;
+
             this._plesso.Insert();
 
            
@@ -590,7 +593,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
 
         }
 
-        public int SetGravita(int ID,
+        public int SetGravita(long idUser, int ID, string Istituto_Descrizione, string Plesso_Descrizione, string Anno_Descrizione,
             string cf, string nome, string cognome, string sesso, string dataNascita, string luogoNascita, string luogoDomicilio,
             string cittadinanza, string classe, string numeroAllievi, string TempoScuolaClasse, string OreSettimanaliPresenza,
             string OreRichieste_PiscoFisico, string OreRichieste_Audioleso, string OreRichieste_NonVedente,
@@ -602,6 +605,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             List<SQL_DAL.SP_Parameter> list = new List<SP_Parameter>();
             list.Add(new SP_Parameter("@id", this.ID));
             list.Add(new SP_Parameter("@gravita", this._gravita));
+            list.Add(new SP_Parameter("@idUser", idUser));
 
             int num = base.Execute_Command("usp_Set_Allievo_Gravita", list);
 

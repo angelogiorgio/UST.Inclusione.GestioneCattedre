@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UST.Inclusione.GestioneCattedre.Anagrafiche.Allievi
 {
-    public partial class Allievo_Edit : _base
+    public partial class Allievo_Edit : _basePage
     {
 
         public string GetBool(string val)

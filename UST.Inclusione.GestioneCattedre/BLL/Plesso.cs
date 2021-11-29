@@ -54,6 +54,10 @@ namespace UST.Inclusione.GestioneCattedre.BLL
         {
         }
 
+        public Plesso(long id, Utente user) : base(id)
+        {
+            base.User = user;
+        }
 
         public Plesso(long id) : base(id)
         { }

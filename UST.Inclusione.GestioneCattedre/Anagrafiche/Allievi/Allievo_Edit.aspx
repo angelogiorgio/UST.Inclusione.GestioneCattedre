@@ -488,7 +488,7 @@
                     </asp:TableCell><asp:TableCell>
                         <asp:DropDownList ID="ddlIstituti" runat="server" DataSourceID="obsIstituti" DataTextField="Nome"
                             AutoPostBack="true" OnSelectedIndexChanged="ddlIstituti_SelectedIndexChanged" 
-                            OnDataBound="ddlIstituti_DataBound"
+                            OnDataBound="ddlIstituti_DataBound" Enabled="false"
                             SelectedValue='<%# Bind("idIstituto") %>'
                             
                             DataValueField="ID">
