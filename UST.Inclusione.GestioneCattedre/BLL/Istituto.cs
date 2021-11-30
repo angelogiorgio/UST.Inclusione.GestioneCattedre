@@ -155,6 +155,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
 
         public int Insert(long idUser,string codiceMeccanografico,  string nome, int idAnnoScolastico)
         {
+
             List<SQL_DAL.SP_Parameter> list = new List<SP_Parameter>();
             list.Add(new SP_Parameter("@idannoScolastico", idAnnoScolastico));
             list.Add(new SP_Parameter("@codiceMaccanografico", codiceMeccanografico));
