@@ -120,7 +120,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             list.Add(new SP_Parameter("@idas", id_annoScolastico));
             list.Add(new SP_Parameter("@numeroCattedre", numeroCattedre));
             list.Add(new SP_Parameter("@idUser", idUser));
-
+                       
             int num = base.Execute_Command("usp_Set_Cattedre", list);
 
             return num;
@@ -164,12 +164,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             int num = base.Execute_Command("usp_Insert_Istituto", list);
             
             return num;
-
-
         }
-
-
-
 
     }
 }
