@@ -59,11 +59,6 @@ namespace UST.Inclusione.GestioneCattedre.GestioneGravita
 
                 obds_Allievi.DeleteParameters.Clear();
                 obds_Allievi.DeleteParameters.Add(new Parameter("id", System.Data.DbType.String, Request.Params["id"].ToString()));
-
-
-
-
-
             }
 
 
@@ -78,8 +73,6 @@ namespace UST.Inclusione.GestioneCattedre.GestioneGravita
 
             DropDownList ddlPlessi = (DropDownList)frmViewAlunno.Controls[0].FindControl("ddlPlessi");
             obds_Allievi.InsertParameters.Add("idPlesso", ddlPlessi.SelectedValue);
-
-
         }
 
         protected void ddlIstituti_Init(object sender, EventArgs e)
@@ -87,7 +80,7 @@ namespace UST.Inclusione.GestioneCattedre.GestioneGravita
             DropDownList ddl = (DropDownList)frmViewAlunno.Controls[0].FindControl("ddlIstituti");
             obds_Plessi.SelectParameters.Clear();
             obds_Plessi.SelectParameters.Add("idIstituto", ddl.SelectedValue);
-
+            ll
         }
 
 

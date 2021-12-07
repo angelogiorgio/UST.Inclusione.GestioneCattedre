@@ -140,6 +140,7 @@ namespace UST.Inclusione.GestioneCattedre.BLL
             List<SQL_DAL.SP_Parameter> list = new List<SP_Parameter>();
             list.Add(new SP_Parameter("@id", id));
             List<object[]> test = base.Execute_SP("uspGetIstituto", list);
+
             Istituto ist = null;
 
             if (test.Count > 0)
